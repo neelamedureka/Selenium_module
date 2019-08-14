@@ -23,9 +23,6 @@
                         <artifactId>slf4j-api</artifactId>
                         <version>1.7.25</version>
                 </dependency>
-                #<dependency org="org.apache.maven.plugins" name="maven-compiler-plugin" rev="3.8.1">
-                #<artifact name="maven-compiler-plugin" type="maven-plugin" />
-                #</dependency>
                 <dependency>
                         <groupId>org.slf4j</groupId>
                         <artifactId>slf4j-simple</artifactId>
