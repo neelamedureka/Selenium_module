@@ -1,0 +1,119 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+        <modelVersion>4.0.0</modelVersion>
+
+        <groupId>com.amdocs.ms360.integration</groupId>
+        <artifactId>selenium-test</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <!-- <packaging>jar</packaging> -->
+
+  <name>selenium-test</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+                <prometheus.http.api.host>${PROMETHEUS_HOST}</prometheus.http.api.host>
+                <prometheus.http.api.port>${PROMETHEUS_PORT}</prometheus.http.api.port>
+        </properties>
+
+        <dependencies>
+                <dependency>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-api</artifactId>
+                        <version>1.7.25</version>
+                </dependency>
+                #<dependency org="org.apache.maven.plugins" name="maven-compiler-plugin" rev="3.8.1">
+                #<artifact name="maven-compiler-plugin" type="maven-plugin" />
+                #</dependency>
+                <dependency>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-simple</artifactId>
+                        <version>1.7.25</version>
+                        <scope>test</scope>
+                </dependency>
+                <dependency>
+                        <groupId>junit</groupId>
+                        <artifactId>junit</artifactId>
+                        <version>4.12</version>
+                        <scope>test</scope>
+                </dependency>
+
+
+                <!-- Irit addition - For PrometheusTestUtil -->
+                <dependency>
+                        <groupId>javax.json</groupId>
+                        <artifactId>javax.json-api</artifactId>
+                        <version>1.0</version>
+                </dependency>
+ <dependency>
+                        <groupId>org.glassfish</groupId>
+                        <artifactId>javax.json</artifactId>
+                        <version>1.0.4</version>
+                </dependency>
+                <!-- These are the selenium-webdriver dependencies -->
+                <dependency>
+                        <groupId>org.seleniumhq.selenium</groupId>
+                        <artifactId>selenium-java</artifactId>
+                        <version>3.5.2</version>
+                </dependency>
+
+                <dependency>
+                        <groupId>org.seleniumhq.selenium</groupId>
+                        <artifactId>selenium-server</artifactId>
+                        <version>3.8.1</version>
+                </dependency>
+
+                <dependency>
+        <groupId>org.seleniumhq.selenium</groupId>
+        <artifactId>selenium-firefox-driver</artifactId>
+        <version>3.141.59</version>
+        </dependency>
+
+                 <dependency>
+        <groupId>org.seleniumhq.selenium</groupId>
+        <artifactId>htmlunit-driver</artifactId>
+        <version>2.33.2</version>
+        </dependency>
+
+                <dependency>
+                        <groupId>org.testng</groupId>
+                        <artifactId>testng</artifactId>
+                        <version>6.8</version>
+                        <scope>test</scope>
+                </dependency>
+
+
+        </dependencies>
+
+        <build>
+                <plugins>
+                        <plugin>
+                                <groupId>org.apache.maven.plugins</groupId>
+                                <artifactId>maven-surefire-plugin</artifactId>
+                                <configuration>
+                                        <systemProperties>
+
+                                                <property>
+                                                        <name>prometheus.http.api.host</name>
+                                                        <value>${prometheus.http.api.host}</value>
+                                                </property>
+                                                <property>
+                                                        <name>prometheus.http.api.port</name>
+                                                        <value>${prometheus.http.api.port}</value>
+                                                </property>
+                                        </systemProperties>
+                                </configuration>
+                        </plugin>
+                        <plugin>
+                                <groupId>org.apache.maven.plugins</groupId>
+                                <artifactId>maven-compiler-plugin</artifactId>
+                                <version>3.6.1</version>
+                                <configuration>
+                                        <source>1.8</source>
+                                        <target>1.8</target>
+                                </configuration>
+                        </plugin>
+                </plugins>
+        </build>
+</project>
